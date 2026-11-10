@@ -1,0 +1,816 @@
+          <!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Capital Aura Holding | Elite Portfolio & Luxury Services</title>
+
+    <style>
+
+        body {
+
+            margin: 0;
+
+            padding: 0;
+
+            background-color: #0b0c10;
+
+            color: #ffffff;
+
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+            text-align: center;
+
+        }
+
+        .container {
+
+            padding: 60px 20px;
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+        }
+
+        .logo-area {
+
+            font-size: 2.8rem;
+
+            font-weight: bold;
+
+            letter-spacing: 4px;
+
+            color: #d4af37; /* Gold */
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+
+        }
+
+        .tagline {
+
+            font-size: 1.3rem;
+
+            color: #c0c0c0;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 50px;
+
+        }
+
+        .intro-text {
+
+            font-size: 1.2rem;
+
+            line-height: 1.8;
+
+            color: #e0e0e0;
+
+            margin-bottom: 50px;
+
+            background: rgba(255,255,255,0.02);
+
+            padding: 25px;
+
+            border-left: 3px solid #d4af37;
+
+            text-align: left;
+
+        }
+
+       
+
+        /* Founder Section Styling */
+
+        .founder-section {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 40px;
+
+            background: rgba(255, 255, 255, 0.01);
+
+            border: 1px solid rgba(212, 175, 55, 0.1);
+
+            padding: 40px;
+
+            border-radius: 8px;
+
+            margin-bottom: 60px;
+
+            text-align: left;
+
+        }
+
+        .founder-image {
+
+            width: 220px;
+
+            height: 280px;
+
+            object-fit: cover;
+
+            border-radius: 4px;
+
+            border: 1px solid #d4af37;
+
+            background-color: #1a1a1a;
+
+        }
+
+        .founder-message {
+
+            flex: 1;
+
+        }
+
+        .founder-message h3 {
+
+            color: #d4af37;
+
+            margin-top: 0;
+
+            font-size: 1.5rem;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+
+        .founder-message p {
+
+            color: #e0e0e0;
+
+            font-size: 1.05rem;
+
+            line-height: 1.7;
+
+        }
+
+        .founder-signature {
+
+            font-family: 'Georgia', serif;
+
+            font-style: italic;
+
+            color: #d4af37;
+
+            font-size: 1.4rem;
+
+            margin-top: 20px;
+
+            display: block;
+
+        }
+
+
+        h2 {
+
+            color: #d4af37;
+
+            font-size: 1.8rem;
+
+            margin-bottom: 30px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+
+        .services-grid {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 20px;
+
+            text-align: left;
+
+        }
+
+        .service-card {
+
+            background: rgba(255, 255, 255, 0.03);
+
+            border: 1px solid rgba(212, 175, 55, 0.15);
+
+            padding: 25px;
+
+            border-radius: 6px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            transition: all 0.3s ease;
+
+        }
+
+        .service-card:hover {
+
+            border-color: #d4af37;
+
+            background: rgba(212, 175, 55, 0.05);
+
+            transform: translateX(5px);
+
+        }
+
+        .service-info h3 {
+
+            margin: 0 0 8px 0;
+
+            font-size: 1.3rem;
+
+            color: #ffffff;
+
+        }
+
+        .service-info p {
+
+            margin: 0;
+
+            color: #b0b0b0;
+
+            font-size: 1rem;
+
+        }
+
+        .service-price {
+
+            font-size: 1.4rem;
+
+            font-weight: bold;
+
+            color: #d4af37;
+
+            white-space: nowrap;
+
+            padding-left: 20px;
+
+        }
+
+
+        /* Testimonials Styling */
+
+        .testimonials-section {
+
+            margin-top: 60px;
+
+            text-align: left;
+
+            margin-bottom: 60px;
+
+        }
+
+        .testimonials-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+
+            margin-top: 30px;
+
+        }
+
+        .testimonial-card {
+
+            background: rgba(255, 255, 255, 0.02);
+
+            border-left: 2px solid #d4af37;
+
+            padding: 25px;
+
+            border-radius: 0 6px 6px 0;
+
+        }
+
+        .testimonial-text {
+
+            font-style: italic;
+
+            color: #e0e0e0;
+
+            font-size: 0.95rem;
+
+            line-height: 1.6;
+
+            margin-bottom: 15px;
+
+        }
+
+        .testimonial-author {
+
+            color: #d4af37;
+
+            font-size: 0.85rem;
+
+            font-weight: bold;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        /* Content Sections Styling (About & Contact) */
+
+        .content-section {
+
+            background: rgba(255, 255, 255, 0.01);
+
+            border: 1px solid rgba(212, 175, 55, 0.08);
+
+            padding: 40px;
+
+            border-radius: 8px;
+
+            margin-top: 40px;
+
+            text-align: left;
+
+        }
+
+        .content-section h2 {
+
+            margin-top: 0;
+
+            margin-bottom: 20px;
+
+        }
+
+        .content-section p {
+
+            color: #e0e0e0;
+
+            font-size: 1.1rem;
+
+            line-height: 1.8;
+
+            margin-bottom: 0;
+
+        }
+
+        .contact-detail {
+
+            margin-top: 25px;
+
+            font-size: 1.15rem;
+
+            color: #ffffff;
+
+        }
+
+        .contact-detail strong {
+
+            color: #d4af37;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+
+        .contact-detail a {
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            border-bottom: 1px dashed #d4af37;
+
+            transition: color 0.3s;
+
+        }
+
+        .contact-detail a:hover {
+
+            color: #d4af37;
+
+        }
+
+
+        @media (max-width: 768px) {
+
+            .founder-section { flex-direction: column; text-align: center; }
+
+            .testimonials-grid { grid-template-columns: 1fr; }
+
+        }
+
+
+        .btn-premium {
+
+            background-color: #d4af37;
+
+            color: #0b0c10;
+
+            padding: 18px 45px;
+
+            font-size: 1.1rem;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+            border-radius: 4px;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            transition: all 0.3s ease;
+
+            display: inline-block;
+
+            margin-top: 50px;
+
+        }
+
+        .btn-premium:hover {
+
+            background-color: #ffffff;
+
+            color: #0b0c10;
+
+            box-shadow: 0 0 20px rgba(255,255,255,0.3);
+
+        }
+
+        .footer {
+
+            margin-top: 80px;
+
+            font-size: 0.8rem;
+
+            color: #666666;
+
+            letter-spacing: 1px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <div class="logo-area">Capital Aura Holding</div>
+
+        <div class="tagline">Exclusive Off-Market Assets & Bespoke Luxury Services</div>
+
+       
+
+        <div class="intro-text">
+
+            Welcome to the private ecosystem of Capital Aura Holding. Our platform provides premium members with uncompromising service, access to top-tier medical facilities for elite health management, and bespoke care for luxury residences and family pets.
+
+        </div>
+
+
+        <!-- FOUNDER WELCOME SECTION -->
+
+        <div class="founder-section">
+
+            <img src="progile.png.jpg" alt="Founder of Capital Aura Holding" class="founder-image">
+
+            <div class="founder-message">
+
+                <h3>A Message from the Founder</h3>
+
+                <p>
+
+                    "It is my distinct pleasure to welcome you to Capital Aura Holding. We have established this closed network to cater to those who demand nothing less than perfection. Within our ecosystem, you will find an elite catalog of bespoke services—ranging from elite global health management to private aviation and estate care. Every request is executed with absolute discretion, peerless professionalism, and unmatched efficiency. Your peace of mind is our highest currency."
+
+                </p>
+
+                <span class="founder-signature">Your Name / Signature</span>
+
+            </div>
+
+        </div>
+
+
+        <h2>Premium Services Catalogue (Ranked by Value)</h2>
+
+
+        <div class="services-grid">
+
+           
+
+            <!-- 1. Real Estate, Investments & Solar Parks -->
+
+            <div class="service-card">
+
+                <div class="service-info">
+
+                    <h3>Elite Real Estate, Financial Investments & Solar Energy</h3>
+
+                    <p>Exclusive off-market trophy property acquisitions ($10M+), full transaction management, strategic financial asset structuring, and high-yield industrial solar park investments with top-tier asset security.</p>
+
+                </div>
+
+                <div class="service-price">$10,000,000+</div>
+
+            </div>
+
+
+            <!-- 2. Private Jet Charters -->
+
+            <div class="service-card">
+
+                <div class="service-info">
+
+                    <h3>Private Jet Charter Bookings</h3>
+
+                    <p>Global flights on luxury business jets with absolute discretion and unmatched flexibility.</p>
+
+                </div>
+
+                <div class="service-price">$25,000+</div>
+
+            </div>
+
+
+            <!-- 3. Luxury Cruises -->
+
+            <div class="service-card">
+
+                <div class="service-info">
+
+                    <h3>Luxury Cruises to Exotic Destinations</h3>
+
+                    <p>Private mega-yachts and exclusive itineraries to the most remote corners of the world.</p>
+
+                </div>
+
+                <div class="service-price">$15,000+</div>
+
+            </div>
+
+
+            <!-- 4. Elite Medical Clinics -->
+
+            <div class="service-card">
+
+                <div class="service-info">
+
+                    <h3>Elite Health Management & Private Clinics</h3>
+
+                    <p>Priority access to top international specialists, private clinics, and personalized global health management for you and your family.</p>
+
+                </div>
+
+                <div class="service-price">$12,000+</div>
+
+            </div>
+
+
+
+            <!-- 6. Emergency Vet Care -->
+
+            <div class="service-card">
+
+                <div class="service-info">
+
+                    <h3>Emergency & 24/7 VIP Veterinary Care</h3>
+
+                    <p>Round-the-clock medical teams, mobile clinics, and urgent surgeries for your precious pets.</p>
+
+                </div>
+
+                <div class="service-price">$8,500+</div>
+
+            </div>
+
+
+            <!-- 7. Family Events -->
+
+            <div class="service-card">
+
+                <div class="service-info">
+
+                    <h3>Premium Family Events & Ceremonies</h3>
+
+                    <p>Bespoke weddings, large-scale celebrations, or prestigious memorial services with exquisite management.</p>
+
+                </div>
+
+                <div class="service-price">$7,500+</div>
+
+            </div>
+
+
+            <!-- 8. Roofing Services -->
+
+            <div class="service-card">
+
+                <div class="service-info">
+
+                    <h3>Specialized Estate Roofing Services</h3>
+
+                    <p>Inspection, premium repair, and construction of roof systems using the highest grade materials.</p>
+
+                </div>
+
+                <div class="service-price">$5,000+</div>
+
+            </div>
+
+
+            <!-- 9. Pet Hotels -->
+
+            <div class="service-card">
+
+                <div class="service-info">
+
+                    <h3>Five-Star Pet Hotels & Luxury Residences</h3>
+
+                    <p>Individual luxury suites, 24/7 monitoring, and personalized care during your travels.</p>
+
+                </div>
+
+                <div class="service-price">$3,000+</div>
+
+            </div>
+
+
+            <!-- 10. Plumbing Services -->
+
+            <div class="service-card">
+
+                <div class="service-info">
+
+                    <h3>High-End Plumbing & Engineering Services</h3>
+
+                    <p>Complex plumbing solutions, smart filtration systems, and maintenance for grand residences.</p>
+
+                </div>
+
+                <div class="service-price">$2,500+</div>
+
+            </div>
+
+
+            <!-- 11. Wellness Services -->
+
+            <div class="service-card">
+
+                <div class="service-info">
+
+                    <h3>Personal Wellness & Spa Programs</h3>
+
+                    <p>Private therapists, deep relaxation, and holistic health treatments tailored directly at your home.</p>
+
+                </div>
+
+                <div class="service-price">$1,500+</div>
+
+            </div>
+
+
+            <!-- 12. Elite Grooming -->
+
+            <div class="service-card">
+
+                <div class="service-info">
+
+                    <h3>Elite Pet Grooming & Spa</h3>
+
+                    <p>Styling, haute-cosmetics, and specialized spa procedures delivered on-site by top professionals.</p>
+
+                </div>
+
+                <div class="service-price">$1,250+</div>
+
+            </div>
+
+
+            <!-- 13. Home Care -->
+
+            <div class="service-card">
+
+                <div class="service-info">
+
+                    <h3>Luxury Home Care & Estate Management</h3>
+
+                    <p>Daily maintenance, expert cleaning, and dedicated concierge services for your estate.</p>
+
+                </div>
+
+                <div class="service-price">$1,200/mo.</div>
+
+            </div>
+
+
+        </div> <!-- End of services-grid -->
+
+
+        <!-- TESTIMONIALS SECTION -->
+
+        <div class="testimonials-section">
+
+            <h2>Member Testimonials</h2>
+
+            <div class="testimonials-grid">
+
+                <div class="testimonial-card">
+
+                    <p class="testimonial-text">"Capital Aura Holding redefined how we manage our private aviation and family estate. Their response speed and discretion are absolutely unparalleled."</p>
+
+                    <div class="testimonial-author">H.K. — Managing Director, Private Wealth (Geneva)</div>
+
+                </div>
+
+                <div class="testimonial-card">
+
+                    <p class="testimonial-text">"When an urgent medical situation arose, their elite health network provided immediate access to top international specialists within hours. Priceless support."</p>
+
+                    <div class="testimonial-author">V.S. — Senior Partner, Magic Circle Law Firm (London)</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ABOUT SECTION -->
+
+        <div class="content-section">
+
+            <h2>About Capital Aura Holding</h2>
+
+            <p>
+
+                Capital Aura Holding operates as a premier, invitation-only ecosystem built for high-net-worth individuals and family offices. We seamlessly integrate elite asset management, off-market real estate acquisitions, green energy investments, and comprehensive lifestyle management. Founded on the core pillars of absolute confidentiality and execution excellence, we protect and enhance both your wealth and your peace of mind.
+
+            </p>
+
+        </div>
+
+
+        <!-- CONTACT SECTION -->
+
+        <div class="content-section">
+
+            <h2>Contact Our Private Network</h2>
+
+            <p>
+
+                To maintain our strict standards of discretion and secure communications, our network is accessible exclusively through our encrypted central registry. Premium members and prospective clients may initiate private inquiries directly via email. Our executive concierge team reviews and handles all requests within standard operational timelines.
+
+            </p>
+
+            <div class="contact-detail">
+
+                <strong>Official Inquiry Point:</strong> <a href="mailto:capitalauraholding@gmail.com">capitalauraholding@gmail.com</a>
+
+            </div>
+
+        </div>
+
+
+        <!-- CALL TO ACTION BUTTON -->
+
+        <a href="mailto:capitalauraholding@gmail.com" class="btn-premium">Request a Consultation</a>
+
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+
+            &copy; 2026 CAPITAL AURA HOLDING. ALL RIGHTS RESERVED. PRIVATE MEMBER NETWORK.
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
+
+
+ 
