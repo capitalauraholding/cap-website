@@ -101,6 +101,29 @@ section{position:relative}
 .founder blockquote{font-size:1.08rem;color:#d6d3cc;border-left:2px solid var(--gold);padding-left:24px}
 .sign{display:block;margin-top:24px;font-family:var(--serif);font-style:italic;color:var(--gold);font-size:1.7rem}
 
+
+.sign-title{display:block;margin-top:4px;font-size:.78rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--ink)}
+.sign-co{display:block;margin-top:4px;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+
+/* expandable service lists */
+.toggle{display:inline-flex;align-items:center;gap:12px;margin-bottom:22px;padding:14px 26px;min-height:48px;background:transparent;border:1px solid var(--gold);color:var(--gold);
+  font:600 .72rem var(--sans);letter-spacing:.22em;text-transform:uppercase;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;
+  transition:background .4s var(--ease),color .4s var(--ease),transform .4s var(--ease)}
+.toggle:hover,.toggle:active{background:var(--gold);color:var(--bg);transform:translateY(-2px)}
+.toggle i{font-style:normal;font-size:1.1rem;line-height:1;transition:transform .45s var(--ease)}
+.toggle[aria-expanded="true"] i{transform:rotate(45deg)}
+.offers.js{overflow:hidden;transition:max-height .7s var(--ease),opacity .5s}
+.offers.js.shut{max-height:0!important;opacity:0}
+.offers.js .offer{opacity:1;transform:none}
+
+/* footer links */
+.foot-links{display:flex;justify-content:center;align-items:center;gap:26px;flex-wrap:wrap;margin-bottom:22px}
+.foot-links a{color:var(--ink);text-decoration:none;opacity:.8;transition:color .3s,opacity .3s}
+.foot-links a:hover{color:var(--gold);opacity:1}
+.foot-links .in{display:inline-flex;width:44px;height:44px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:50%;transition:border-color .3s,background .3s,transform .4s var(--ease)}
+.foot-links .in:hover{border-color:var(--gold);background:rgba(212,175,55,.1);transform:translateY(-3px)}
+.foot-links svg{width:18px;height:18px;fill:currentColor}
+
 /* image panels */
 .panel{position:relative;overflow:hidden;isolation:isolate;padding:clamp(80px,12vw,150px) 0}
 .panel::before{background:linear-gradient(90deg,rgba(7,8,12,.94) 0%,rgba(7,8,12,.78) 45%,rgba(7,8,12,.35) 100%)}
@@ -123,7 +146,7 @@ section{position:relative}
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .card{position:relative;overflow:hidden;min-height:440px;display:flex;align-items:flex-end;border:1px solid var(--line);isolation:isolate}
 .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.2s var(--ease)}
-.card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,8,12,.05) 20%,rgba(7,8,12,.92));transition:background .5s}
+.card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,8,12,0) 15%,rgba(7,8,12,.6) 50%,rgba(7,8,12,.95));transition:background .5s}
 .card:hover img{transform:scale(1.09)}
 .card:hover::before{background:linear-gradient(180deg,rgba(7,8,12,.2) 0%,rgba(7,8,12,.95))}
 .card .in{padding:30px 28px;width:100%}
@@ -173,7 +196,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;font-si
   .stat:nth-child(2){border-right:0}
   .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
   .quotes{grid-template-columns:1fr}
-  .panel::before,.panel.right::before{background:linear-gradient(180deg,rgba(7,8,12,.82),rgba(7,8,12,.92))}
+  .panel::before,.panel.right::before{background:linear-gradient(180deg,rgba(7,8,12,.7),rgba(7,8,12,.9))}
   .panel.right .copy{margin-left:0}
   .offer{flex-direction:column;align-items:flex-start;gap:10px;padding:20px}
   .offer:hover{transform:translateY(-4px)}
@@ -251,7 +274,9 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;font-si
       <blockquote>
         It is my distinct pleasure to welcome you to Capital Aura Holding. We have established this closed network to cater to those who demand nothing less than perfection. Within our ecosystem, you will find an elite catalog of bespoke services, from global health management to private aviation and estate care. Every request is executed with absolute discretion, peerless professionalism and unmatched efficiency. Your peace of mind is our highest currency.
       </blockquote>
-      <span class="sign">Capital Aura Holding</span>
+      <span class="sign">Poly Michelle</span>
+      <span class="sign-title">Founder &amp; Managing Director</span>
+      <span class="sign-co">Capital Aura Holding</span>
     </div>
   </div>
 </section>
@@ -411,7 +436,16 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;font-si
   </div>
 </section>
 
-<footer>&copy; 2026 Capital Aura Holding. All rights reserved. Private member network.</footer>
+<footer>
+  <div class="wrap">
+    <div class="foot-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a class="in" href="LINKEDIN_URL_HERE" target="_blank" rel="noopener noreferrer me" aria-label="Poly Michelle on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+    </div>
+    &copy; 2026 Capital Aura Holding. All rights reserved. Private member network.
+  </div>
+</footer>
 
 <script>
 (function(){
@@ -443,6 +477,28 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;font-si
   }
   burger.addEventListener('click',function(){toggle(!links.classList.contains('open'))});
   links.addEventListener('click',function(e){if(e.target.tagName==='A')toggle(false)});
+
+
+  // expandable service lists (collapsed by default on phones)
+  document.querySelectorAll('.panel .offers').forEach(function(box,i){
+    var id='offers-'+i,btn=document.createElement('button'),mobile=innerWidth<820;
+    box.id=id;box.classList.add('js');
+    btn.type='button';btn.className='toggle';btn.setAttribute('aria-controls',id);
+    box.parentNode.insertBefore(btn,box);
+    function set(open){
+      btn.setAttribute('aria-expanded',open);
+      btn.innerHTML=(open?'Hide Services':'View Services')+' <i>+</i>';
+      box.classList.toggle('shut',!open);
+      box.style.maxHeight=open?box.scrollHeight+40+'px':'0px';
+    }
+    btn.addEventListener('click',function(){set(btn.getAttribute('aria-expanded')!=='true')});
+    set(!mobile);
+    // keep height correct if offers were hidden when measured / on rotate
+    addEventListener('resize',function(){if(btn.getAttribute('aria-expanded')==='true')box.style.maxHeight=box.scrollHeight+40+'px'});
+    // opening via nav link jumps to the section: expand it
+    var sec=box.closest('section');
+    document.querySelectorAll('a[href="#'+sec.id+'"]').forEach(function(a){a.addEventListener('click',function(){if(btn.getAttribute('aria-expanded')!=='true')set(true)})});
+  });
 
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
