@@ -531,8 +531,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;font-si
 
 
   // ---- AI assistant ----
-  var CHAT_API='VERCEL_API_URL_HERE';   // replace with the backend's URL: https://<backend-app>.vercel.app/api/chat
-  if(CHAT_API.indexOf('VERCEL_API_URL_HERE')===0&&/^(localhost|127\.0\.0\.1)$/.test(location.hostname))CHAT_API='http://localhost:3000/api/chat';
+  var CHAT_API='https://capitalaura.vercel.app/api/chat';
   var chat=document.getElementById('chat'),fab=document.getElementById('chatFab'),log=document.getElementById('chatLog'),
       form=document.getElementById('chatForm'),input=document.getElementById('chatIn'),send=document.getElementById('chatSend'),
       chips=document.getElementById('chips'),history=[],busy=false,greeted=false;
@@ -551,6 +550,29 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;font-si
   fab.addEventListener('click',function(){openChat(true)});
   document.getElementById('chatX').addEventListener('click',function(){openChat(false)});
   addEventListener('keydown',function(e){if(e.key==='Escape'&&chat.classList.contains('open'))openChat(false)});
+  var W3F_KEY='e544cc92-5c10-46e3-af08-b69335b59d0f';
+  function resetChat(){log.innerHTML='';history=[];greeted=false;chips.style.display='';input.disabled=false;input.value=''}
+  function submitLead(lead){
+    var transcript=history.map(function(m){return (m.role==='user'?'Visitor: ':'Concierge: ')+m.content}).join('\n\n');
+    var note=add('Sending your details to our team\u2026','bot');note.style.opacity='.7';
+    input.disabled=true;
+    return fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({
+        access_key:W3F_KEY,
+        subject:'New lead \u2013 '+(lead.interest||'Concierge')+' \u2013 '+(lead.name||'Website visitor'),
+        from_name:'Capital Aura Concierge',
+        name:lead.name||'',email:lead.email||'',phone:lead.phone||'',interest:lead.interest||'',
+        message:'Request: '+(lead.details||'')+'\n\n--- Conversation ---\n'+transcript})})
+      .then(function(r){return r.json()})
+      .then(function(j){
+        if(!j.success)throw new Error('send failed');
+        note.style.opacity='1';note.textContent='\u2713 Details sent to the team.';
+        setTimeout(function(){openChat(false);setTimeout(resetChat,500)},3500);
+      })
+      .catch(function(){
+        note.classList.add('err');note.style.opacity='1';input.disabled=false;
+        note.textContent='We could not send your details automatically. Please email capitalauraholding@gmail.com.';
+      });
+  }
   function ask(text){
     text=(text||'').trim();if(!text||busy)return;
     busy=true;send.disabled=true;chips.style.display='none';input.value='';
@@ -558,7 +580,13 @@ footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;font-si
     var wait=add('','bot');wait.innerHTML='<span class="dots"><i></i><i></i><i></i></span>';
     fetch(CHAT_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:history})})
       .then(function(r){return r.json().then(function(j){if(!r.ok)throw new Error(j.error||'error');return j})})
-      .then(function(j){wait.textContent=j.reply;history.push({role:'assistant',content:j.reply})})
+      .then(function(j){
+        var m=j.reply.match(/\[\[LEAD\]\]([\s\S]*?)\[\[\/LEAD\]\]/),lead=null;
+        var shown=j.reply.replace(/\[\[LEAD\]\][\s\S]*?\[\[\/LEAD\]\]/g,'').replace(/\[\[LEAD\]\][\s\S]*$/,'').trim();
+        if(m){try{lead=JSON.parse(m[1])}catch(e){}}
+        wait.textContent=shown||'Thank you.';history.push({role:'assistant',content:shown});
+        if(lead&&(lead.email||lead.phone))return submitLead(lead);
+      })
       .catch(function(e){wait.classList.add('err');wait.textContent=(e&&e.message&&e.message!=='Failed to fetch')?e.message:'Connection issue. Please try again or email capitalauraholding@gmail.com.';history.pop()})
       .then(function(){busy=false;send.disabled=false;log.scrollTop=log.scrollHeight;if(innerWidth>620)input.focus()});
   }
